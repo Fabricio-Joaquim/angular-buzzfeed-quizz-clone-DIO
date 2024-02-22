@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import quizz_questions from "../../../assets/data/quizz_questions.json"
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-quizz',
-  templateUrl: './quizz.component.html',
-  styleUrls: ['./quizz.component.css']
+  templateUrl: './quizz.component.html'
 })
 
 export class QuizzComponent implements OnInit {
@@ -22,8 +21,6 @@ export class QuizzComponent implements OnInit {
 
   finished:boolean = false
 
-  constructor() { }
-
   ngOnInit(): void {
     if(quizz_questions){
       this.finished = false
@@ -34,9 +31,6 @@ export class QuizzComponent implements OnInit {
 
       this.questionIndex = 0
       this.questionMaxIndex = this.questions.length
-
-      console.log(this.questionIndex)
-      console.log(this.questionMaxIndex)
     }
 
   }

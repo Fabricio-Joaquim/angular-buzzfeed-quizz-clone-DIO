@@ -1,27 +1,28 @@
-<div class="quizz__container">
+<div class="w-[80%] mt-10 m-auto">
 
-  <div class="quizz_logo">
+  <div class="flex justify-center items-center flex-col mb-3">
     <img src="assets/imgs/logo.png" alt="" srcset="">
-    <h3>{{title}}</h3>
+    <h3 class="mt-5">{{title}}</h3>
   </div>
 
-  <div *ngIf=!finished class="quizz_questions">
+  <div *ngIf=!finished class="flex items-center justify-center rounded-lg w-full bg-indigo-500 border border-indigo-900 h-52 mb-5 text-xl">
       <h3>{{questionSelected.question}}</h3>
   </div>
 
-  <div *ngIf=!finished class="quizz_options">
+  <div *ngIf=!finished class="flex flex-wrap justify-center m-auto mb-5">
 
     <button
       *ngFor="let option of questionSelected.options; let i = index"
       (click)="playerChoose(option.alias)"
-      class="btn-option"
+      class="active:top-1 active:relative hover:bg-green-600 rounded-lg text-lg bg-transparent inline-block cursor-pointer w-1/2
+       text-white duration-500 no-underline px-8 py-4 shadow-emerald-400 shadow-sm border border-emerald-500"
     >
       {{option.name}}
     </button>
 
   </div>
 
-  <div *ngIf=finished class="quizz_results">
+  <div *ngIf=finished class="w-full h-[350px] p-8 flex justify-center items-center flex-col rounded-xl bg-gray-900">
     <h1>O Seu resultado é:</h1>
     <p>{{answerSelected}}</p>
   </div>
